@@ -6,9 +6,40 @@ namespace BAM.BL
 {
     public class Account
     {
+        public enum AccountType { CheckingAccount, SavingsAccount, BusinessAccount};
+        public enum AccountState { Active, Locked, Deactive};
+
+        public Account(int accountId, string accountType)
+        {
+            //Set ID
+            AccountId = accountId;
+
+            //Set account type
+            switch (accountType)
+            {
+                case "CheckingAccount":
+                    Type = AccountType.CheckingAccount;
+                    break;
+
+                case "SavingsAccount":
+                    Type = AccountType.SavingsAccount;
+                    break;
+
+                case "BusinessAccount":
+                    Type = AccountType.BusinessAccount;
+                    break;
+            }
+
+            //Set state
+            State = AccountState.Active;
+
+            //Set balance
+            Balance = 0M;
+        }
+
         public int AccountId { get; set; }
-        //public enum Type { get; set; }
+        public AccountType Type { get; set; }
+        public AccountState State { get; set; }
         public decimal Balance { get; set; }
-        //public enum State { get; set; }
     }
 }
