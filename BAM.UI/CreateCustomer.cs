@@ -21,12 +21,17 @@ namespace BAM.UI
         //Create customer
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-
+            //Create customer
             CustomerHandler customerHandler = new CustomerHandler();
             var customer = customerHandler.CreateCustomer(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhoneNumber.Text);
 
+            //Create Account
             AccountHandler accountHandler = new AccountHandler();
             var account = accountHandler.CreateAccount(customer.CustomerId, "SavingsAccount");
+
+            //Save
+            CustomerRepository customerRepository = new CustomerRepository();
+            customerRepository.Save(customer);
 
             //This should save the data instead of showing it
             labelShowText.Text = "";
