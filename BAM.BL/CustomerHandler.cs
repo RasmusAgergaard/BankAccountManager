@@ -28,26 +28,20 @@ namespace BAM.BL
             return true;
         }
 
-        public Customer CreateCustomer()
+        public Customer CreateCustomer(string firstName, string lastName, string email, string phoneNumber)
         {
             //Create a new customer with a unique id
             Customer customer = new Customer(UniqueCustomerId);
+
+            customer.FirstName = firstName;
+            customer.LastName = lastName;
+            customer.Email = email;
+            customer.PhoneNumber = phoneNumber;
 
             //Increase unique id
             UniqueCustomerId += 1;
 
             return customer;
         }
-
-        public Customer SetCustomerInfomation(Customer customer, string firstName, string lastName, string email, string phoneNumber)
-        {
-            customer.FirstName = firstName;
-            customer.LastName = lastName;
-            customer.Email = email;
-            customer.PhoneNumber = phoneNumber;
-
-            return customer;
-        }
-
     }
 }
