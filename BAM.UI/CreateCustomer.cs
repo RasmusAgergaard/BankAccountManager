@@ -28,25 +28,17 @@ namespace BAM.UI
 
             //Create Account
             AccountHandler accountHandler = new AccountHandler();
-            var account = accountHandler.CreateAccount(customer.CustomerId, "SavingsAccount");
+            var account = accountHandler.CreateAccount(customer.CustomerId, comboBoxAccountType.Text);
 
             //Save customer
             CustomerRepository customerRepository = new CustomerRepository();
-            customerRepository.Save(customer);
+            customerRepository.SaveCustomerToJson(customer);
 
-            //This should save the data instead of showing it
-            labelShowText.Text = "";
+            //Save account
+            AccountRepository accountRepository = new AccountRepository();
+            accountRepository.SaveAccountToJson(account);
 
-            labelShowText.Text += "ID: " + customer.CustomerId.ToString() + "\n";
-            labelShowText.Text += customer.FirstName.ToString() + "\n";
-            labelShowText.Text += customer.LastName.ToString() + "\n";
-            labelShowText.Text += customer.Email.ToString() + "\n";
-            labelShowText.Text += customer.PhoneNumber.ToString();
-            labelShowText.Text += "\n\n"; //Space
-            labelShowText.Text += "Account ID: " + account.AccountId.ToString() + "\n";
-            labelShowText.Text += account.Type.ToString() + "\n";
-            labelShowText.Text += account.State.ToString() + "\n";
-            labelShowText.Text += account.Balance.ToString() + "\n";
+            labelShowText.Text = "OK";
         }
     }
 }
