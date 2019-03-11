@@ -8,20 +8,23 @@ namespace BAM.BL
 {
     public class CustomerRepository
     {
-        public bool Save(Customer customer)
+        public void Save(Customer customer)
         {
-            //Serialize object
-            //string seriallizedJason = JsonConvert.SerializeObject(customer);
+            var filePath = Path.Combine(Environment.CurrentDirectory, "customer_database.json");
 
-            //File.WriteAllText(@"c:\test\test.json", seriallizedJason);
+            //Read existing json data
+            var jsonData = File.ReadAllText(filePath);
 
-            using (StreamWriter file = File.CreateText(@"c:\test\movie.json"))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, customer);
-            }
+            //De-serialize to object or create a new list
+            var customerList = JsonConvert.DeserializeObject<List<Customer>>(jsonData)
+                                        ?? new List<Customer>();
 
-            return true;
+            //Add customer to list
+            customerList.Add(customer);
+
+            //Update json data string
+            jsonData = JsonConvert.SerializeObject(customerList);
+            File.WriteAllText(filePath, jsonData);
         }
     }
 }

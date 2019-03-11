@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace BAM.UI
 {
@@ -29,7 +30,7 @@ namespace BAM.UI
             AccountHandler accountHandler = new AccountHandler();
             var account = accountHandler.CreateAccount(customer.CustomerId, "SavingsAccount");
 
-            //Save
+            //Save customer
             CustomerRepository customerRepository = new CustomerRepository();
             customerRepository.Save(customer);
 
