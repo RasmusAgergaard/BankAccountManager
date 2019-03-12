@@ -111,3 +111,4 @@ C:\Users\Rasmus\Desktop\Main drive\Programming\BankAccountManager\BAM.UI\obj\Deb
 C:\Users\Rasmus\Desktop\Main drive\Programming\BankAccountManager\BAM.UI\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Rasmus\Desktop\Main drive\Programming\BankAccountManager\BAM.UI\bin\Debug\Newtonsoft.Json.pdb
 C:\Users\Rasmus\Desktop\Main drive\Programming\BankAccountManager\BAM.UI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Rasmus\Desktop\Main drive\Programming\BankAccountManager\BAM.UI\obj\Debug\BAM.UI.MainWindow.resources

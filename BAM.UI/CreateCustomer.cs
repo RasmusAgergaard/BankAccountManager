@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 
 namespace BAM.UI
 {
@@ -19,26 +18,34 @@ namespace BAM.UI
             InitializeComponent();
         }
 
-        //Create customer
+        //Overloaded constructor - To create link to the form calling it
+        private MainWindow mainForm = null;
+        public CreateCustomer(Form callingForm) 
+        {
+            mainForm = callingForm as MainWindow;
+            InitializeComponent();
+        }
+
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            //Create customer
-            CustomerHandler customerHandler = new CustomerHandler();
-            var customer = customerHandler.CreateCustomer(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhoneNumber.Text);
+            //Create objects
+            var customerHandler = new CustomerHandler();
+            var customerRepository = new CustomerRepository();
+            var accountHandler = new AccountHandler();
+            var accountRepository = new AccountRepository();
 
-            //Create Account
-            AccountHandler accountHandler = new AccountHandler();
-            var account = accountHandler.CreateAccount(customer.CustomerId, comboBoxAccountType.Text);
-
-            //Save customer
-            CustomerRepository customerRepository = new CustomerRepository();
+            //Create a customer and save him
+            var customer = customerHandler.CreateCustomer(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhone.Text);
             customerRepository.SaveCustomerToJson(customer);
 
-            //Save account
-            AccountRepository accountRepository = new AccountRepository();
+            //Create a account and save it
+            var account = accountHandler.CreateAccount(customer.CustomerId, comboBoxAccountType.Text);
             accountRepository.SaveAccountToJson(account);
 
-            labelShowText.Text = "OK";
+            //Update 
+            this.mainForm.UpdateCustomerList();
+
+            this.Close();
         }
     }
 }
