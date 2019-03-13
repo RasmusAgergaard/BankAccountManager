@@ -1,6 +1,6 @@
 ﻿namespace BAM.UI
 {
-    partial class EditCustomer
+    partial class CreateCustomer
     {
         /// <summary>
         /// Required designer variable.

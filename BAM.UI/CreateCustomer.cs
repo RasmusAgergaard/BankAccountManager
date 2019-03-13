@@ -11,18 +11,18 @@ using System.Windows.Forms;
 
 namespace BAM.UI
 {
-    public partial class EditCustomer : Form
+    public partial class CreateCustomer : Form
     {
         private int tempId;
 
-        public EditCustomer()
+        public CreateCustomer()
         {
             InitializeComponent();
         }
 
         //Overloaded constructor - To create link to the form calling it
         private MainWindow mainForm = null;
-        public EditCustomer(Form callingForm, int id) 
+        public CreateCustomer(Form callingForm, int id) 
         {
             mainForm = callingForm as MainWindow;
             InitializeComponent();

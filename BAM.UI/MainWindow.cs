@@ -25,7 +25,7 @@ namespace BAM.UI
         //Create new customer
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            var formCreateCustomer = new EditCustomer(this, uniqueCustomerId);
+            var formCreateCustomer = new CreateCustomer(this, uniqueCustomerId);
             formCreateCustomer.Show();
 
             uniqueCustomerId += 1;
