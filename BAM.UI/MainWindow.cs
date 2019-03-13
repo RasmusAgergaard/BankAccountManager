@@ -20,11 +20,26 @@ namespace BAM.UI
             UpdateCustomerList();
         }
 
+        private static int uniqueCustomerId = 1;
+
         //Create new customer
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            var formCreateCustomer = new CreateCustomer(this);
+            var formCreateCustomer = new EditCustomer(this, uniqueCustomerId);
             formCreateCustomer.Show();
+
+            uniqueCustomerId += 1;
+        }
+
+        //Delete customer
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            var customerRepository = new CustomerRepository();
+            Customer customer = listBoxCustomers.SelectedItem as Customer;
+
+            customerRepository.RemoveCustomerFromJson(customer.CustomerId);
+
+            UpdateCustomerList();
         }
 
         //Update the customer list
@@ -40,7 +55,6 @@ namespace BAM.UI
             //Add the customers to the list box
             foreach (var customer in customers)
             {
-                //listBoxCustomers.Items.Add($"ID: {customer.CustomerId} - {customer.FirstName} {customer.LastName}");
                 listBoxCustomers.Items.Add(customer);
             }
 
@@ -52,10 +66,13 @@ namespace BAM.UI
         {
             Customer customer = listBoxCustomers.SelectedItem as Customer;
 
-            labelCustomerInfo.Text = $"First name: {customer.FirstName}\n" +
+            labelCustomerInfo.Text = $"Customer ID: {customer.CustomerId}\n" +
+                                     $"First name: {customer.FirstName}\n" +
                                      $"Last name: {customer.LastName}\n" +
                                      $"Email address: {customer.Email}\n" +
                                      $"Phone number: {customer.PhoneNumber}\n";
         }
+
+
     }
 }

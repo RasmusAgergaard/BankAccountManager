@@ -8,10 +8,7 @@ namespace BAM.BL
     {
         public CustomerHandler()
         {
-            UniqueCustomerId = 1;
         }
-
-        public static int UniqueCustomerId { get; private set;}
 
         public bool EditCustomer(int customerId)
         {
@@ -28,18 +25,15 @@ namespace BAM.BL
             return true;
         }
 
-        public Customer CreateCustomer(string firstName, string lastName, string email, string phoneNumber)
+        public Customer CreateCustomer(int id, string firstName, string lastName, string email, string phoneNumber)
         {
             //Create a new customer with a unique id
-            Customer customer = new Customer(UniqueCustomerId);
+            Customer customer = new Customer(id);
 
             customer.FirstName = firstName;
             customer.LastName = lastName;
             customer.Email = email;
             customer.PhoneNumber = phoneNumber;
-
-            //Increase unique id
-            UniqueCustomerId += 1;
 
             return customer;
         }

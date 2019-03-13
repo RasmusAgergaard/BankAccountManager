@@ -11,19 +11,22 @@ using System.Windows.Forms;
 
 namespace BAM.UI
 {
-    public partial class CreateCustomer : Form
+    public partial class EditCustomer : Form
     {
-        public CreateCustomer()
+        private int tempId;
+
+        public EditCustomer()
         {
             InitializeComponent();
         }
 
         //Overloaded constructor - To create link to the form calling it
         private MainWindow mainForm = null;
-        public CreateCustomer(Form callingForm) 
+        public EditCustomer(Form callingForm, int id) 
         {
             mainForm = callingForm as MainWindow;
             InitializeComponent();
+            tempId = id;
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)
@@ -35,7 +38,7 @@ namespace BAM.UI
             var accountRepository = new AccountRepository();
 
             //Create a customer and save him
-            var customer = customerHandler.CreateCustomer(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhone.Text);
+            var customer = customerHandler.CreateCustomer(tempId, textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhone.Text);
             customerRepository.SaveCustomerToJson(customer);
 
             //Create a account and save it
