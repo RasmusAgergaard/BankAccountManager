@@ -65,6 +65,15 @@ namespace BAM.BL
             return customerList;
         }
 
+        public void ResetJsonWithNewList(List<Customer> customerList)
+        {
+            //Save to json
+            var filePath = Path.Combine(Environment.CurrentDirectory, "customer_database.json");
+            var jsonData = JsonConvert.SerializeObject(customerList);
+            File.WriteAllText(filePath, jsonData);
+        }
+
+        //Test
         public void ResetListAndAddTestCustomers()
         {
             //Create a new list
@@ -101,7 +110,7 @@ namespace BAM.BL
                     PhoneNumber = "45685475"}
             };
 
-            //Save to jason
+            //Save to json
             var filePath = Path.Combine(Environment.CurrentDirectory, "customer_database.json");
             var jsonData = JsonConvert.SerializeObject(customers);
             File.WriteAllText(filePath, jsonData);

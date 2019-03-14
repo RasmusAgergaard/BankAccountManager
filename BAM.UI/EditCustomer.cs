@@ -14,6 +14,7 @@ namespace BAM.UI
     public partial class EditCustomer : Form
     {
         CustomerRepository customerRepository = new CustomerRepository();
+        CustomerHandler customerHandler = new CustomerHandler();
 
         public EditCustomer()
         {
@@ -21,8 +22,10 @@ namespace BAM.UI
         }
 
         private string _customerId;
-        public EditCustomer(string customerId)
+        private MainWindow mainForm = null;
+        public EditCustomer(string customerId, Form callingForm)
         {
+            mainForm = callingForm as MainWindow;
             InitializeComponent();
             
             //Set id
@@ -58,13 +61,37 @@ namespace BAM.UI
         //Edit customer
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            
+            //Get data from json and add to list
+            var customersOldList = customerRepository.GetCustomersFromJson();
+            var customersNewList = new List<Customer>();
 
             //Remove existing customer from list
+            foreach (var customer in customersOldList)
+            {
+                if (customer.CustomerId != _customerId)
+                {
+                    customersNewList.Add(customer);
+                }
+            }
 
-            //Add new customer to list
+            //Add updated customer to list
+            var newCustomer = new Customer(_customerId)
+            {
+                FirstName = textBoxFirstName.Text,
+                LastName = textBoxLastName.Text,
+                Email = textBoxEmail.Text,
+                PhoneNumber = textBoxPhone.Text
+            };
 
-            //Write data to json
+            customersNewList.Add(newCustomer);
+
+            //Reset list with the new content
+            customerRepository.ResetJsonWithNewList(customersNewList);
+
+            //Update 
+            this.mainForm.UpdateCustomerList();
+
+            this.Close();
         }
     }
 }

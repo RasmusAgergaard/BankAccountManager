@@ -7,3 +7,12 @@ C:\Users\Rasmus\Desktop\Main drive\Programming\BankAccountManager\BAM.BL\obj\Deb
 C:\Users\Rasmus\Desktop\Main drive\Programming\BankAccountManager\BAM.BL\obj\Debug\netstandard2.0\BAM.BL.AssemblyInfo.cs
 C:\Users\Rasmus\Desktop\Main drive\Programming\BankAccountManager\BAM.BL\obj\Debug\netstandard2.0\BAM.BL.dll
 C:\Users\Rasmus\Desktop\Main drive\Programming\BankAccountManager\BAM.BL\obj\Debug\netstandard2.0\BAM.BL.pdb
+C:\Users\rasmu\Desktop\Main drive\Programming\BankAccountManager\BAM.BL\bin\Debug\netstandard2.0\BAM.BL.deps.json
+C:\Users\rasmu\Desktop\Main drive\Programming\BankAccountManager\BAM.BL\bin\Debug\netstandard2.0\BAM.BL.dll
+C:\Users\rasmu\Desktop\Main drive\Programming\BankAccountManager\BAM.BL\bin\Debug\netstandard2.0\BAM.BL.pdb
+C:\Users\rasmu\Desktop\Main drive\Programming\BankAccountManager\BAM.BL\obj\Debug\netstandard2.0\BAM.BL.csprojAssemblyReference.cache
+C:\Users\rasmu\Desktop\Main drive\Programming\BankAccountManager\BAM.BL\obj\Debug\netstandard2.0\BAM.BL.csproj.CoreCompileInputs.cache
+C:\Users\rasmu\Desktop\Main drive\Programming\BankAccountManager\BAM.BL\obj\Debug\netstandard2.0\BAM.BL.AssemblyInfoInputs.cache
+C:\Users\rasmu\Desktop\Main drive\Programming\BankAccountManager\BAM.BL\obj\Debug\netstandard2.0\BAM.BL.AssemblyInfo.cs
+C:\Users\rasmu\Desktop\Main drive\Programming\BankAccountManager\BAM.BL\obj\Debug\netstandard2.0\BAM.BL.dll
+C:\Users\rasmu\Desktop\Main drive\Programming\BankAccountManager\BAM.BL\obj\Debug\netstandard2.0\BAM.BL.pdb

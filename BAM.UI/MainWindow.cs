@@ -22,15 +22,11 @@ namespace BAM.UI
             UpdateCustomerList();
         }
 
-        private static int uniqueCustomerId = 1;
-
         //Create new customer
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             var formCreateCustomer = new CreateCustomer(this);
             formCreateCustomer.Show();
-
-            uniqueCustomerId += 1;
         }
 
         //Reset the list, and create test customers
@@ -56,6 +52,18 @@ namespace BAM.UI
             }
         }
 
+        //Edit customer
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            if (listBoxCustomers.SelectedItem != null)
+            {
+                Customer customer = listBoxCustomers.SelectedItem as Customer;
+
+                var formEditCustomer = new EditCustomer(customer.CustomerId, this);
+                formEditCustomer.Show();
+            }
+        }
+
         //Update the customer list
         public void UpdateCustomerList()
         {
@@ -73,6 +81,8 @@ namespace BAM.UI
             }
 
             listBoxCustomers.DisplayMember = "FirstName";
+
+            labelCustomerInfo.Text = "";
         }
 
         //Select a customer
