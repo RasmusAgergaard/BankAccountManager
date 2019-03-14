@@ -6,7 +6,7 @@ namespace BAM.BL
 {
     public class AccountHandler
     {
-        public Account CreateAccount(int accountId, string accountType)
+        public Account CreateAccount(string accountId, string accountType)
         {
             //Create new account
             Account account = new Account(accountId, accountType);

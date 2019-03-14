@@ -14,6 +14,8 @@ namespace BAM.UI
 {
     public partial class MainWindow : Form
     {
+        CustomerRepository customerRepository = new CustomerRepository();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -25,21 +27,33 @@ namespace BAM.UI
         //Create new customer
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            var formCreateCustomer = new CreateCustomer(this, uniqueCustomerId);
+            var formCreateCustomer = new CreateCustomer(this);
             formCreateCustomer.Show();
 
             uniqueCustomerId += 1;
         }
 
+        //Reset the list, and create test customers
+        private void buttonTest_Click(object sender, EventArgs e)
+        {
+            customerRepository.ResetListAndAddTestCustomers();
+
+            UpdateCustomerList();
+        }
+
         //Delete customer
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            var customerRepository = new CustomerRepository();
-            Customer customer = listBoxCustomers.SelectedItem as Customer;
+            if (listBoxCustomers.SelectedItem != null)
+            {
+                Customer customer = listBoxCustomers.SelectedItem as Customer;
 
-            customerRepository.RemoveCustomerFromJson(customer.CustomerId);
+                customerRepository.RemoveCustomerFromJson(customer.CustomerId);
 
-            UpdateCustomerList();
+                UpdateCustomerList();
+
+                ResetCustomerInfo();
+            }
         }
 
         //Update the customer list
@@ -66,11 +80,17 @@ namespace BAM.UI
         {
             Customer customer = listBoxCustomers.SelectedItem as Customer;
 
-            labelCustomerInfo.Text = $"Customer ID: {customer.CustomerId}\n" +
+            labelCustomerInfo.Text = $"ID: {customer.CustomerId}\n" +
                                      $"First name: {customer.FirstName}\n" +
                                      $"Last name: {customer.LastName}\n" +
                                      $"Email address: {customer.Email}\n" +
                                      $"Phone number: {customer.PhoneNumber}\n";
+        }
+
+        //Deselect customer
+        private void ResetCustomerInfo()
+        {
+            labelCustomerInfo.Text = "";
         }
 
 

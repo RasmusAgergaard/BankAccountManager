@@ -26,7 +26,7 @@ namespace BAM.BL
             File.WriteAllText(filePath, jsonData);
         }
 
-        public void RemoveCustomerFromJson(int customerId)
+        public void RemoveCustomerFromJson(string customerId)
         {
             var filePath = Path.Combine(Environment.CurrentDirectory, "customer_database.json");
 
@@ -63,6 +63,48 @@ namespace BAM.BL
 
             //Return list
             return customerList;
+        }
+
+        public void ResetListAndAddTestCustomers()
+        {
+            //Create a new list
+            var customers = new List<Customer>()
+            {
+                new Customer(Guid.NewGuid().ToString()){
+                    FirstName = "John",
+                    LastName = "Jensen",
+                    Email = "john@jensen.dk",
+                    PhoneNumber = "45454545"},
+
+                new Customer(Guid.NewGuid().ToString()){
+                    FirstName = "Tina",
+                    LastName = "Nielsen",
+                    Email = "tina@webweb.dk",
+                    PhoneNumber = "45784575"},
+
+                new Customer(Guid.NewGuid().ToString()){
+                    FirstName = "Ole",
+                    LastName = "Hansen",
+                    Email = "ole@erglad.dk",
+                    PhoneNumber = "12345678"},
+
+                new Customer(Guid.NewGuid().ToString()){
+                    FirstName = "Rasmus A.",
+                    LastName = "Bruntse",
+                    Email = "sjov@mail.org",
+                    PhoneNumber = "88888888"},
+
+                new Customer(Guid.NewGuid().ToString()){
+                    FirstName = "Svend",
+                    LastName = "Sved",
+                    Email = "groen@slagter.dk",
+                    PhoneNumber = "45685475"}
+            };
+
+            //Save to jason
+            var filePath = Path.Combine(Environment.CurrentDirectory, "customer_database.json");
+            var jsonData = JsonConvert.SerializeObject(customers);
+            File.WriteAllText(filePath, jsonData);
         }
     }
 }

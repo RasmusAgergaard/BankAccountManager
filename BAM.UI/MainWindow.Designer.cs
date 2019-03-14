@@ -30,8 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.buttonCreate = new System.Windows.Forms.Button();
-            this.buttonDeposit = new System.Windows.Forms.Button();
-            this.buttonWithdraw = new System.Windows.Forms.Button();
+            this.buttonManageAccount = new System.Windows.Forms.Button();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listBoxCustomers = new System.Windows.Forms.ListBox();
@@ -41,6 +40,7 @@
             this.labelCustomerInfo = new System.Windows.Forms.Label();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonTest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,23 +54,14 @@
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
-            // buttonDeposit
+            // buttonManageAccount
             // 
-            this.buttonDeposit.Location = new System.Drawing.Point(438, 415);
-            this.buttonDeposit.Name = "buttonDeposit";
-            this.buttonDeposit.Size = new System.Drawing.Size(60, 29);
-            this.buttonDeposit.TabIndex = 9;
-            this.buttonDeposit.Text = "Deposit";
-            this.buttonDeposit.UseVisualStyleBackColor = true;
-            // 
-            // buttonWithdraw
-            // 
-            this.buttonWithdraw.Location = new System.Drawing.Point(511, 415);
-            this.buttonWithdraw.Name = "buttonWithdraw";
-            this.buttonWithdraw.Size = new System.Drawing.Size(60, 29);
-            this.buttonWithdraw.TabIndex = 10;
-            this.buttonWithdraw.Text = "Withdraw";
-            this.buttonWithdraw.UseVisualStyleBackColor = true;
+            this.buttonManageAccount.Location = new System.Drawing.Point(472, 415);
+            this.buttonManageAccount.Name = "buttonManageAccount";
+            this.buttonManageAccount.Size = new System.Drawing.Size(100, 29);
+            this.buttonManageAccount.TabIndex = 10;
+            this.buttonManageAccount.Text = "Manage account";
+            this.buttonManageAccount.UseVisualStyleBackColor = true;
             // 
             // pictureBoxLogo
             // 
@@ -154,12 +145,26 @@
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
+            // buttonTest
+            // 
+            this.buttonTest.BackColor = System.Drawing.Color.OrangeRed;
+            this.buttonTest.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.buttonTest.ForeColor = System.Drawing.Color.White;
+            this.buttonTest.Location = new System.Drawing.Point(246, 23);
+            this.buttonTest.Name = "buttonTest";
+            this.buttonTest.Size = new System.Drawing.Size(200, 29);
+            this.buttonTest.TabIndex = 20;
+            this.buttonTest.Text = "Reset, and create test customers";
+            this.buttonTest.UseVisualStyleBackColor = false;
+            this.buttonTest.Click += new System.EventHandler(this.buttonTest_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(584, 461);
+            this.Controls.Add(this.buttonTest);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.labelCustomerInfo);
@@ -169,9 +174,9 @@
             this.Controls.Add(this.listBoxCustomers);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBoxLogo);
-            this.Controls.Add(this.buttonWithdraw);
-            this.Controls.Add(this.buttonDeposit);
+            this.Controls.Add(this.buttonManageAccount);
             this.Controls.Add(this.buttonCreate);
+            this.ForeColor = System.Drawing.SystemColors.Desktop;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainWindow";
             this.Text = "Bank Account Manager";
@@ -183,8 +188,7 @@
 
         #endregion
         private System.Windows.Forms.Button buttonCreate;
-        private System.Windows.Forms.Button buttonDeposit;
-        private System.Windows.Forms.Button buttonWithdraw;
+        private System.Windows.Forms.Button buttonManageAccount;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBoxCustomers;
@@ -194,6 +198,7 @@
         private System.Windows.Forms.Label labelCustomerInfo;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonTest;
     }
 }
 

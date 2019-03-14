@@ -25,10 +25,12 @@ namespace BAM.BL
             return true;
         }
 
-        public Customer CreateCustomer(int id, string firstName, string lastName, string email, string phoneNumber)
+        public Customer CreateCustomer(string firstName, string lastName, string email, string phoneNumber)
         {
             //Create a new customer with a unique id
-            Customer customer = new Customer(id);
+            var guid = Guid.NewGuid().ToString();
+
+            Customer customer = new Customer(guid);
 
             customer.FirstName = firstName;
             customer.LastName = lastName;

@@ -13,8 +13,6 @@ namespace BAM.UI
 {
     public partial class CreateCustomer : Form
     {
-        private int tempId;
-
         public CreateCustomer()
         {
             InitializeComponent();
@@ -22,11 +20,10 @@ namespace BAM.UI
 
         //Overloaded constructor - To create link to the form calling it
         private MainWindow mainForm = null;
-        public CreateCustomer(Form callingForm, int id) 
+        public CreateCustomer(Form callingForm) 
         {
             mainForm = callingForm as MainWindow;
             InitializeComponent();
-            tempId = id;
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)
@@ -38,7 +35,7 @@ namespace BAM.UI
             var accountRepository = new AccountRepository();
 
             //Create a customer and save him
-            var customer = customerHandler.CreateCustomer(tempId, textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhone.Text);
+            var customer = customerHandler.CreateCustomer(textBoxFirstName.Text, textBoxLastName.Text, textBoxEmail.Text, textBoxPhone.Text);
             customerRepository.SaveCustomerToJson(customer);
 
             //Create a account and save it

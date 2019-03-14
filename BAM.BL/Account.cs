@@ -9,7 +9,7 @@ namespace BAM.BL
         public enum AccountType { CheckingAccount, SavingsAccount, BusinessAccount};
         public enum AccountState { Active, Locked, Deactive};
 
-        public Account(int accountId, string accountType)
+        public Account(string accountId, string accountType)
         {
             //Set ID
             AccountId = accountId;
@@ -37,7 +37,7 @@ namespace BAM.BL
             Balance = 0M;
         }
 
-        public int AccountId { get; set; }
+        public string AccountId { get; set; }
         public AccountType Type { get; set; }
         public AccountState State { get; set; }
         public decimal Balance { get; set; }

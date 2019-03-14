@@ -6,13 +6,13 @@ namespace BAM.BL
     {
         public enum State { Active, Locked, Deactive };
 
-        public Customer(int customerId)
+        public Customer(string customerId)
         {
             CustomerId = customerId;
             state = State.Active;
         }
 
-        public int CustomerId { get; private set; }
+        public string CustomerId { get; private set; }
         public State state { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
