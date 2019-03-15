@@ -14,6 +14,7 @@ namespace BAM.UI
     public partial class EditCustomer : Form
     {
         CustomerRepository customerRepository = new CustomerRepository();
+        AccountRepository accountRepository = new AccountRepository();
         CustomerHandler customerHandler = new CustomerHandler();
 
         public EditCustomer()
@@ -21,6 +22,7 @@ namespace BAM.UI
             InitializeComponent();
         }
 
+        //Overloaded constructor
         private string _customerId;
         private MainWindow mainForm = null;
         public EditCustomer(string customerId, Form callingForm)
@@ -48,10 +50,25 @@ namespace BAM.UI
                 if (customer.CustomerId == _customerId)
                 {
                     customerToEdit = customer;
+
                 }
             }
 
-            //Populate fields
+            //Get data from json and add to list
+            var accounts = accountRepository.GetAccountsFromJson();
+
+            //If the account id matches the customer id - populate the combobox
+            foreach (var account in accounts)
+            {
+                if (account.AccountId == _customerId)
+                {
+                    //Populate comboBox
+                    comboBoxAccountType.Text = account.Type.ToString();
+                    break;
+                }
+            }
+
+            //Populate the rest of the fields
             textBoxFirstName.Text = customerToEdit.FirstName;
             textBoxLastName.Text = customerToEdit.LastName;
             textBoxEmail.Text = customerToEdit.Email;
@@ -60,6 +77,18 @@ namespace BAM.UI
 
         //Edit customer
         private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            EditAndSaveCustomersToJson();
+
+            EditAndSaveAccountsToJson();
+
+            //Update 
+            this.mainForm.UpdateCustomerList();
+
+            this.Close();
+        }
+
+        private void EditAndSaveCustomersToJson()
         {
             //Get data from json and add to list
             var customersOldList = customerRepository.GetCustomersFromJson();
@@ -87,11 +116,30 @@ namespace BAM.UI
 
             //Reset list with the new content
             customerRepository.ResetJsonWithNewList(customersNewList);
+        }
 
-            //Update 
-            this.mainForm.UpdateCustomerList();
+        private void EditAndSaveAccountsToJson()
+        {
+            //Get data from json and add to list
+            var accountsOldList = accountRepository.GetAccountsFromJson();
+            var accountsNewList = new List<Account>();
 
-            this.Close();
+            //Add all but the editet account to a list
+            foreach (var account in accountsOldList)
+            {
+                if (account.AccountId != _customerId)
+                {
+                    accountsNewList.Add(account);
+                }
+            }
+
+            //Add updated customer to list
+            var newAccount = new Account(_customerId, comboBoxAccountType.Text);
+
+            accountsNewList.Add(newAccount);
+
+            //Reset list with the new content
+            accountRepository.ResetJsonWithNewList(accountsNewList);
         }
     }
 }

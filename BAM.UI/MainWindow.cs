@@ -15,6 +15,7 @@ namespace BAM.UI
     public partial class MainWindow : Form
     {
         CustomerRepository customerRepository = new CustomerRepository();
+        AccountRepository accountRepository = new AccountRepository();
 
         public MainWindow()
         {
@@ -82,25 +83,48 @@ namespace BAM.UI
 
             listBoxCustomers.DisplayMember = "FirstName";
 
-            labelCustomerInfo.Text = "";
+            ResetCustomerInfo();
         }
 
         //Select a customer
         private void listBoxCustomers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Customer customer = listBoxCustomers.SelectedItem as Customer;
+            if (listBoxCustomers.SelectedItem != null)
+            {
+                //Selected customer
+                Customer customer = listBoxCustomers.SelectedItem as Customer;
 
-            labelCustomerInfo.Text = $"ID: {customer.CustomerId}\n" +
-                                     $"First name: {customer.FirstName}\n" +
-                                     $"Last name: {customer.LastName}\n" +
-                                     $"Email address: {customer.Email}\n" +
-                                     $"Phone number: {customer.PhoneNumber}\n";
+                //Find selected customer account
+                var accounts = accountRepository.GetAccountsFromJson();
+                Account accountToDisplay = new Account("",""); ;
+
+                foreach (var account in accounts)
+                {
+                    if (account.AccountId == customer.CustomerId)
+                    {
+                        accountToDisplay = account;
+                        break;
+                    }
+                }
+
+                //Add text
+                labelCustomerInfo.Text = $"ID: {customer.CustomerId}\n" +
+                                         $"\n" +
+                                         $"First name: {customer.FirstName}\n" +
+                                         $"Last name: {customer.LastName}\n" +
+                                         $"Email address: {customer.Email}\n" +
+                                         $"Phone number: {customer.PhoneNumber}\n" +
+                                         $"\n" +
+                                         $"Account type: {accountToDisplay.Type}\n" +
+                                         $"Balance: {accountToDisplay.Balance}\n";
+            }
+
         }
 
         //Deselect customer
         private void ResetCustomerInfo()
         {
-            labelCustomerInfo.Text = "";
+            labelCustomerInfo.Text = "Select a customer...";
         }
 
 

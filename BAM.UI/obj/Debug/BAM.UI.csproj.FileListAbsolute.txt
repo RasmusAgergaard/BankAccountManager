@@ -227,3 +227,4 @@ C:\Users\rasmu\Desktop\Main drive\Programming\BankAccountManager\BAM.UI\obj\Debu
 C:\Users\rasmu\Desktop\Main drive\Programming\BankAccountManager\BAM.UI\obj\Debug\BAM.UI.csproj.CopyComplete
 C:\Users\rasmu\Desktop\Main drive\Programming\BankAccountManager\BAM.UI\obj\Debug\BAM.UI.exe
 C:\Users\rasmu\Desktop\Main drive\Programming\BankAccountManager\BAM.UI\obj\Debug\BAM.UI.pdb
+C:\Users\Rasmus\Desktop\Main drive\Programming\BankAccountManager\BAM.UI\obj\Debug\BAM.UI.EditCustomer.resources

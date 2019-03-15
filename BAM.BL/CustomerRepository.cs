@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace BAM.BL
@@ -61,8 +62,11 @@ namespace BAM.BL
             //De-serialize to object or create a new list
             var customerList = JsonConvert.DeserializeObject<List<Customer>>(jsonData) ?? new List<Customer>();
 
+            //Sort the list by firstname
+            var query = customerList.OrderByDescending(c => c.FirstName);
+
             //Return list
-            return customerList;
+            return query.ToList();
         }
 
         public void ResetJsonWithNewList(List<Customer> customerList)
@@ -76,6 +80,8 @@ namespace BAM.BL
         //Test
         public void ResetListAndAddTestCustomers()
         {
+            AccountHandler accountHandler = new AccountHandler();
+
             //Create a new list
             var customers = new List<Customer>()
             {
@@ -110,9 +116,24 @@ namespace BAM.BL
                     PhoneNumber = "45685475"}
             };
 
-            //Save to json
-            var filePath = Path.Combine(Environment.CurrentDirectory, "customer_database.json");
-            var jsonData = JsonConvert.SerializeObject(customers);
+            //Create accounts for each customer
+            var accounts = new List<Account>()
+            {
+                new Account(customers[0].CustomerId, "CheckingAccount"),
+                new Account(customers[1].CustomerId, "CheckingAccount"),
+                new Account(customers[2].CustomerId, "CheckingAccount"),
+                new Account(customers[3].CustomerId, "CheckingAccount"),
+                new Account(customers[4].CustomerId, "CheckingAccount"),
+            };
+
+            //Save accounts to json
+            var filePath = Path.Combine(Environment.CurrentDirectory, "account_database.json");
+            var jsonData = JsonConvert.SerializeObject(accounts);
+            File.WriteAllText(filePath, jsonData);
+
+            //Save customers to json
+            filePath = Path.Combine(Environment.CurrentDirectory, "customer_database.json");
+            jsonData = JsonConvert.SerializeObject(customers);
             File.WriteAllText(filePath, jsonData);
         }
     }

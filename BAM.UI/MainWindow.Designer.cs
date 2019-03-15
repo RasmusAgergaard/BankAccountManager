@@ -47,10 +47,9 @@
             // buttonCreate
             // 
             this.buttonCreate.BackColor = System.Drawing.SystemColors.Window;
-            this.buttonCreate.Location = new System.Drawing.Point(603, 28);
-            this.buttonCreate.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCreate.Location = new System.Drawing.Point(452, 23);
             this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(160, 36);
+            this.buttonCreate.Size = new System.Drawing.Size(120, 29);
             this.buttonCreate.TabIndex = 8;
             this.buttonCreate.Text = "Create new customer";
             this.buttonCreate.UseVisualStyleBackColor = false;
@@ -58,10 +57,9 @@
             // 
             // buttonManageAccount
             // 
-            this.buttonManageAccount.Location = new System.Drawing.Point(629, 511);
-            this.buttonManageAccount.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonManageAccount.Location = new System.Drawing.Point(472, 415);
             this.buttonManageAccount.Name = "buttonManageAccount";
-            this.buttonManageAccount.Size = new System.Drawing.Size(133, 36);
+            this.buttonManageAccount.Size = new System.Drawing.Size(100, 29);
             this.buttonManageAccount.TabIndex = 10;
             this.buttonManageAccount.Text = "Manage account";
             this.buttonManageAccount.UseVisualStyleBackColor = true;
@@ -69,10 +67,9 @@
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
-            this.pictureBoxLogo.Location = new System.Drawing.Point(16, 15);
-            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(12, 12);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(173, 62);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(130, 50);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLogo.TabIndex = 11;
             this.pictureBoxLogo.TabStop = false;
@@ -80,39 +77,34 @@
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(0, 86);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(0, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(800, 2);
+            this.label1.Size = new System.Drawing.Size(600, 2);
             this.label1.TabIndex = 12;
             // 
             // listBoxCustomers
             // 
             this.listBoxCustomers.FormattingEnabled = true;
-            this.listBoxCustomers.ItemHeight = 16;
-            this.listBoxCustomers.Location = new System.Drawing.Point(16, 174);
-            this.listBoxCustomers.Margin = new System.Windows.Forms.Padding(4);
+            this.listBoxCustomers.Location = new System.Drawing.Point(12, 141);
             this.listBoxCustomers.Name = "listBoxCustomers";
-            this.listBoxCustomers.Size = new System.Drawing.Size(343, 372);
+            this.listBoxCustomers.Size = new System.Drawing.Size(258, 303);
             this.listBoxCustomers.TabIndex = 13;
             this.listBoxCustomers.SelectedIndexChanged += new System.EventHandler(this.listBoxCustomers_SelectedIndexChanged);
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(16, 137);
-            this.textBoxSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxSearch.Location = new System.Drawing.Point(12, 111);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(343, 22);
+            this.textBoxSearch.Size = new System.Drawing.Size(258, 20);
             this.textBoxSearch.TabIndex = 14;
             // 
             // labelSearch
             // 
             this.labelSearch.AutoSize = true;
             this.labelSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSearch.Location = new System.Drawing.Point(11, 108);
-            this.labelSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSearch.Location = new System.Drawing.Point(8, 88);
             this.labelSearch.Name = "labelSearch";
-            this.labelSearch.Size = new System.Drawing.Size(166, 25);
+            this.labelSearch.Size = new System.Drawing.Size(134, 20);
             this.labelSearch.TabIndex = 15;
             this.labelSearch.Text = "Search customer:";
             // 
@@ -120,29 +112,26 @@
             // 
             this.labelCustomerInformation.AutoSize = true;
             this.labelCustomerInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCustomerInformation.Location = new System.Drawing.Point(411, 145);
-            this.labelCustomerInformation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCustomerInformation.Location = new System.Drawing.Point(308, 118);
             this.labelCustomerInformation.Name = "labelCustomerInformation";
-            this.labelCustomerInformation.Size = new System.Drawing.Size(203, 25);
+            this.labelCustomerInformation.Size = new System.Drawing.Size(165, 20);
             this.labelCustomerInformation.TabIndex = 16;
             this.labelCustomerInformation.Text = "Customer information:";
             // 
             // labelCustomerInfo
             // 
             this.labelCustomerInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelCustomerInfo.Location = new System.Drawing.Point(416, 174);
-            this.labelCustomerInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCustomerInfo.Location = new System.Drawing.Point(312, 141);
             this.labelCustomerInfo.Name = "labelCustomerInfo";
-            this.labelCustomerInfo.Size = new System.Drawing.Size(346, 320);
+            this.labelCustomerInfo.Size = new System.Drawing.Size(260, 260);
             this.labelCustomerInfo.TabIndex = 17;
             this.labelCustomerInfo.Text = "Select a customer...";
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(416, 511);
-            this.buttonEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonEdit.Location = new System.Drawing.Point(312, 415);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(67, 36);
+            this.buttonEdit.Size = new System.Drawing.Size(50, 29);
             this.buttonEdit.TabIndex = 18;
             this.buttonEdit.Text = "Edit";
             this.buttonEdit.UseVisualStyleBackColor = true;
@@ -152,10 +141,9 @@
             // 
             this.buttonDelete.BackColor = System.Drawing.Color.OrangeRed;
             this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Location = new System.Drawing.Point(500, 511);
-            this.buttonDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDelete.Location = new System.Drawing.Point(375, 415);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(67, 36);
+            this.buttonDelete.Size = new System.Drawing.Size(50, 29);
             this.buttonDelete.TabIndex = 19;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = false;
@@ -166,10 +154,9 @@
             this.buttonTest.BackColor = System.Drawing.Color.OrangeRed;
             this.buttonTest.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.buttonTest.ForeColor = System.Drawing.Color.White;
-            this.buttonTest.Location = new System.Drawing.Point(328, 28);
-            this.buttonTest.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonTest.Location = new System.Drawing.Point(246, 23);
             this.buttonTest.Name = "buttonTest";
-            this.buttonTest.Size = new System.Drawing.Size(267, 36);
+            this.buttonTest.Size = new System.Drawing.Size(200, 29);
             this.buttonTest.TabIndex = 20;
             this.buttonTest.Text = "Reset, and create test customers";
             this.buttonTest.UseVisualStyleBackColor = false;
@@ -177,10 +164,10 @@
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(779, 567);
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ClientSize = new System.Drawing.Size(584, 461);
             this.Controls.Add(this.buttonTest);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonEdit);
@@ -195,7 +182,6 @@
             this.Controls.Add(this.buttonCreate);
             this.ForeColor = System.Drawing.SystemColors.Desktop;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainWindow";
             this.Text = "Bank Account Manager";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
