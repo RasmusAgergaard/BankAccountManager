@@ -16,6 +16,7 @@ namespace BAM.UI
     {
         CustomerRepository customerRepository = new CustomerRepository();
         AccountRepository accountRepository = new AccountRepository();
+        string searchInput = "";
 
         public MainWindow()
         {
@@ -77,6 +78,13 @@ namespace BAM.UI
             }
         }
 
+        //Search
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            searchInput = textBoxSearch.Text;
+            UpdateCustomerList();
+        }
+
         //Update the customer list
         public void UpdateCustomerList()
         {
@@ -86,6 +94,10 @@ namespace BAM.UI
             //Create a repository and get customers
             var customerRepository = new CustomerRepository();
             var customers = customerRepository.GetCustomersFromJson();
+
+            //Sort the list
+            customers = customers.Where(c => c.FirstName.Contains(searchInput))
+                                 .OrderBy(c => c.FirstName).ToList();
 
             //Add the customers to the list box
             foreach (var customer in customers)
@@ -133,10 +145,18 @@ namespace BAM.UI
 
         }
 
-        //Deselect customer
+        //Reset customer
         private void ResetCustomerInfo()
         {
             labelCustomerInfo.Text = "Select a customer...";
         }
+
+        //Reset Search field
+        private void ResetSearchField()
+        {
+            textBoxSearch.Text = "";
+        }
+
+
     }
 }

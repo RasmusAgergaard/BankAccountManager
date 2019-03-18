@@ -81,37 +81,68 @@ namespace BAM.BL
         public void ResetListAndAddTestCustomers()
         {
             AccountHandler accountHandler = new AccountHandler();
+            Random random = new Random();
 
             //Create a new list
             var customers = new List<Customer>()
             {
                 new Customer(Guid.NewGuid().ToString()){
-                    FirstName = "John",
+                    FirstName = "Christian",
                     LastName = "Jensen",
                     Email = "john@jensen.dk",
                     PhoneNumber = "45454545"},
 
                 new Customer(Guid.NewGuid().ToString()){
-                    FirstName = "Tina",
-                    LastName = "Nielsen",
+                    FirstName = "Andrea",
+                    LastName = "Thomsen",
                     Email = "tina@webweb.dk",
                     PhoneNumber = "45784575"},
 
                 new Customer(Guid.NewGuid().ToString()){
-                    FirstName = "Ole",
+                    FirstName = "Benny",
                     LastName = "Hansen",
                     Email = "ole@erglad.dk",
                     PhoneNumber = "12345678"},
 
                 new Customer(Guid.NewGuid().ToString()){
-                    FirstName = "Rasmus A.",
-                    LastName = "Bruntse",
+                    FirstName = "Thomas T.",
+                    LastName = "Svendsen",
                     Email = "sjov@mail.org",
                     PhoneNumber = "88888888"},
 
                 new Customer(Guid.NewGuid().ToString()){
-                    FirstName = "Svend",
+                    FirstName = "Svend M.",
                     LastName = "Sved",
+                    Email = "groen@slagter.dk",
+                    PhoneNumber = "45685475"},
+
+                new Customer(Guid.NewGuid().ToString()){
+                    FirstName = "Gunnar",
+                    LastName = "Svendsen",
+                    Email = "groen@slagter.dk",
+                    PhoneNumber = "45685475"},
+
+                new Customer(Guid.NewGuid().ToString()){
+                    FirstName = "Zenia",
+                    LastName = "Hendriksen",
+                    Email = "groen@slagter.dk",
+                    PhoneNumber = "45685475"},
+
+                new Customer(Guid.NewGuid().ToString()){
+                    FirstName = "Lotte",
+                    LastName = "Lottesen",
+                    Email = "groen@slagter.dk",
+                    PhoneNumber = "45685475"},
+
+                new Customer(Guid.NewGuid().ToString()){
+                    FirstName = "Torsten",
+                    LastName = "Hammersøn",
+                    Email = "groen@slagter.dk",
+                    PhoneNumber = "45685475"},
+
+                new Customer(Guid.NewGuid().ToString()){
+                    FirstName = "Erik",
+                    LastName = "Eriksen",
                     Email = "groen@slagter.dk",
                     PhoneNumber = "45685475"}
             };
@@ -121,10 +152,20 @@ namespace BAM.BL
             {
                 new Account(customers[0].CustomerId, "CheckingAccount"),
                 new Account(customers[1].CustomerId, "CheckingAccount"),
-                new Account(customers[2].CustomerId, "CheckingAccount"),
-                new Account(customers[3].CustomerId, "CheckingAccount"),
-                new Account(customers[4].CustomerId, "CheckingAccount"),
+                new Account(customers[2].CustomerId, "SavingsAccount"),
+                new Account(customers[3].CustomerId, "SavingsAccount"),
+                new Account(customers[4].CustomerId, "BusinessAccount"),
+                new Account(customers[5].CustomerId, "BusinessAccount"),
+                new Account(customers[6].CustomerId, "BusinessAccount"),
+                new Account(customers[7].CustomerId, "BusinessAccount"),
+                new Account(customers[8].CustomerId, "BusinessAccount"),
+                new Account(customers[9].CustomerId, "BusinessAccount")
             };
+
+            for (int i = 0; i < accounts.Count; i++)
+            {
+                accounts[i].Balance = random.Next(100000);
+            }
 
             //Save accounts to json
             var filePath = Path.Combine(Environment.CurrentDirectory, "account_database.json");

@@ -51,11 +51,11 @@ namespace BAM.UI
             labelCurrentAmount.Text = $"{accountToEdit.Balance},-";
         }
 
-        //key press
+        //Key input control
         private void textBoxInput_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verify that the pressed key isn't CTRL or any non-numeric digit
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
             {
                 e.Handled = true;
             }
