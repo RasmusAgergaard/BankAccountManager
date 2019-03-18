@@ -91,55 +91,54 @@ namespace BAM.UI
         private void EditAndSaveCustomersToJson()
         {
             //Get data from json and add to list
-            var customersOldList = customerRepository.GetCustomersFromJson();
-            var customersNewList = new List<Customer>();
+            var customers = customerRepository.GetCustomersFromJson();
 
             //Remove existing customer from list
-            foreach (var customer in customersOldList)
+            foreach (var customer in customers)
             {
-                if (customer.CustomerId != _customerId)
+                if (customer.CustomerId == _customerId)
                 {
-                    customersNewList.Add(customer);
+                    customer.FirstName = textBoxFirstName.Text;
+                    customer.LastName = textBoxLastName.Text;
+                    customer.Email = textBoxEmail.Text;
+                    customer.PhoneNumber = textBoxPhone.Text;
                 }
             }
 
-            //Add updated customer to list
-            var newCustomer = new Customer(_customerId)
-            {
-                FirstName = textBoxFirstName.Text,
-                LastName = textBoxLastName.Text,
-                Email = textBoxEmail.Text,
-                PhoneNumber = textBoxPhone.Text
-            };
-
-            customersNewList.Add(newCustomer);
-
             //Reset list with the new content
-            customerRepository.ResetJsonWithNewList(customersNewList);
+            customerRepository.ResetJsonWithNewList(customers);
         }
 
         private void EditAndSaveAccountsToJson()
         {
             //Get data from json and add to list
-            var accountsOldList = accountRepository.GetAccountsFromJson();
-            var accountsNewList = new List<Account>();
+            var accounts = accountRepository.GetAccountsFromJson();
 
             //Add all but the editet account to a list
-            foreach (var account in accountsOldList)
+            foreach (var account in accounts)
             {
-                if (account.AccountId != _customerId)
+                if (account.AccountId == _customerId)
                 {
-                    accountsNewList.Add(account);
+                    //Set account type
+                    switch (comboBoxAccountType.Text)
+                    {
+                        case "CheckingAccount":
+                            account.Type = Account.AccountType.CheckingAccount;
+                            break;
+
+                        case "SavingsAccount":
+                            account.Type = Account.AccountType.SavingsAccount;
+                            break;
+
+                        case "BusinessAccount":
+                            account.Type = Account.AccountType.BusinessAccount;
+                            break;
+                    }
                 }
             }
 
-            //Add updated customer to list
-            var newAccount = new Account(_customerId, comboBoxAccountType.Text);
-
-            accountsNewList.Add(newAccount);
-
             //Reset list with the new content
-            accountRepository.ResetJsonWithNewList(accountsNewList);
+            accountRepository.ResetJsonWithNewList(accounts);
         }
     }
 }

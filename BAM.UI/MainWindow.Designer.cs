@@ -61,8 +61,9 @@
             this.buttonManageAccount.Name = "buttonManageAccount";
             this.buttonManageAccount.Size = new System.Drawing.Size(100, 29);
             this.buttonManageAccount.TabIndex = 10;
-            this.buttonManageAccount.Text = "Manage account";
+            this.buttonManageAccount.Text = "Manage balance";
             this.buttonManageAccount.UseVisualStyleBackColor = true;
+            this.buttonManageAccount.Click += new System.EventHandler(this.buttonManageAccount_Click);
             // 
             // pictureBoxLogo
             // 

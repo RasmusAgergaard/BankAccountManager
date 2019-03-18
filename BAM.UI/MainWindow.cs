@@ -65,6 +65,18 @@ namespace BAM.UI
             }
         }
 
+        //Manage account
+        private void buttonManageAccount_Click(object sender, EventArgs e)
+        {
+            if (listBoxCustomers.SelectedItem != null)
+            {
+                Customer customer = listBoxCustomers.SelectedItem as Customer;
+
+                var formManageAccount = new ManageAccount(customer.CustomerId, this);
+                formManageAccount.Show();
+            }
+        }
+
         //Update the customer list
         public void UpdateCustomerList()
         {
@@ -126,7 +138,5 @@ namespace BAM.UI
         {
             labelCustomerInfo.Text = "Select a customer...";
         }
-
-
     }
 }
