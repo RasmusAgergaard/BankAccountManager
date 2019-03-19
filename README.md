@@ -1,4 +1,13 @@
 # B.A.M (Bank Account Manager)
+A basic application that lets the user manage customers.
+
+Users can:
+- Create, edit and delete customers
+- Manage the customer account balance
+- Search for customers
+
+---
+## Screenshots
 
 ###### The main screen
 ![alt text](https://github.com/RasmusAgergaard/BankAccountManager/blob/master/Images/main.jpg "Main")
